@@ -1,0 +1,162 @@
+/* ----------------------------
+   Global Reset & Variables
+----------------------------- */
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #e5e7eb;
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+  --max-width: 720px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ----------------------------
+   Layout
+----------------------------- */
+
+header,
+main,
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ----------------------------
+   Typography
+----------------------------- */
+
+h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.8rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+p {
+  margin-top: 0.5rem;
+}
+
+/* ----------------------------
+   Navigation
+----------------------------- */
+
+nav {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* ----------------------------
+   Links & Buttons
+----------------------------- */
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+a.button {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* ----------------------------
+   Project List
+----------------------------- */
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li p {
+  margin: 0.25rem 0;
+}
+
+/* ----------------------------
+   Small Screens
+----------------------------- */
+
+@media (max-width: 600px) {
+  header,
+  main,
+  footer {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
