@@ -1,0 +1,31 @@
+---
+const { title = "Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Software portfolio of ForgottenScream" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <h1>ForgottenScream</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="https://github.com/ForgottenScream" target="_blank">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} ForgottenScream</p>
+    </footer>
+  </body>
+</html>
