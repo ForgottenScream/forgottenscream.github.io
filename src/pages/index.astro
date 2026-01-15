@@ -1,5 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+const pinnedProjects = allProjects.filter(
+  (project) => project.data.pinned
+);
 ---
 
 <BaseLayout title="ForgottenScream — Portfolio">
@@ -29,6 +35,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           src="/images/pages/index/developer.png"
           alt="Developer working illustration"
       />
+    </div>
+  </section>
+  <section class="pinned-projects">
+    <h2>Pinned Projects</h2>
+
+    <div class="project-grid">
+      {pinnedProjects.map((project) => (
+        <article class="project-card">
+          <h3>{project.data.title}</h3>
+
+          {project.data.image && (
+            <img
+              src={project.data.image}
+              alt={`Screenshot of ${project.data.title}`}
+              loading="lazy"
+            />
+          )}
+
+          <p>{project.data.description}</p>
+
+          {project.data.status && (
+            <p><strong>Status:</strong> {project.data.status}</p>
+          )}
+
+          <div class="project-links">
+            {project.data.site && (
+              <a href={project.data.site} target="_blank">
+                Live Site →
+              </a>
+            )}
+            <a href={project.data.repo} target="_blank">
+              GitHub →
+            </a>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 </BaseLayout>

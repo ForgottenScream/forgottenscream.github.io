@@ -8,9 +8,9 @@ const projects = await getCollection("projects");
 <BaseLayout title="Projects — ForgottenScream">
   <h2>Projects</h2>
 
-  <ul>
+  <section class="project-grid">
     {projects.map((project) => (
-      <li>
+      <article class="project-card">
         <h3>{project.data.title}</h3>
         <p>{project.data.description}</p>
         {project.data.image && (
@@ -31,7 +31,7 @@ const projects = await getCollection("projects");
           </a>
         </div>
         {project.data.status && <p>Status: {project.data.status}</p>}
-      </li>
+      </article>
     ))}
-  </ul>
+  </section>
 </BaseLayout>

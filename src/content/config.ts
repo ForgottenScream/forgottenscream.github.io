@@ -9,6 +9,7 @@ export const collections = {
       site: z.string().optional(),
       repo: z.string(),
       status: z.string(),
+      pinned: z.boolean().optional(),
     }),
   }),
 };
