@@ -74,3 +74,13 @@ nav a:hover {
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+  nav {
+    gap: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+  }
+}

@@ -15,3 +15,24 @@
 .pinned-projects {
   margin-top: 4rem;
 }
+
+@media (max-width: 768px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .intro-image {
+    order: -1;
+  }
+
+  .project-list {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
