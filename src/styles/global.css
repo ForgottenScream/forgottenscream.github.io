@@ -54,6 +54,12 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 footer {
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
