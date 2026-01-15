@@ -171,6 +171,22 @@ li p {
   gap: 0.1rem;
 }
 /* ----------------------------
+   Index Column Style
+   ---------------------------*/
+.intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* ----------------------------
    Small Screens
 ----------------------------- */
 
@@ -183,5 +199,8 @@ li p {
 
   h1 {
     font-size: 1.6rem;
+  }
+  .intro {
+    grid-template-columns: 1fr;
   }
 }

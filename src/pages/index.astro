@@ -3,26 +3,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="ForgottenScream — Portfolio">
-  <section>
-    <h1>Software Engineer</h1>
-    <h4>Computer Science Graduate | Linux & Open-Source Enthusiast | Backend / 
-    DevOps / Security Interests</h4>
-    <p>
-    This year I graduate from my CS degree from the University of Kent with
-    a passion for UNIX based operating systems, networking and software development.
-    I love tinkering, creating scripts and using various programming languages
-    to solve problems.
-    </p>
-    <p>
-    I am also passionate about open-source technologies and am currently looking
-    for opportunities to grow professionally in software development, DevOps or
-    networking, while continuing to expand my technical skills and industry experience.
-    </p>
+  <section class="intro">
+    <div class="intro-text">
+      <h1>Software Engineer</h1>
+      
+      <h4>Computer Science Graduate | Linux & Open-Source Enthusiast | Backend / 
+          DevOps / Security Interests</h4>
+      
+      <p> This year I graduate from my CS degree from the University of Kent with
+        a passion for UNIX based operating systems, networking and software development.
+        I love tinkering, creating scripts and using various programming languages
+        to solve problems.
+      </p>
+      <p> I am also passionate about open-source technologies and am currently looking
+          for opportunities to grow professionally in software development, DevOps or
+          networking, while continuing to expand my technical skills and industry experience.
+      </p>
 
-    <p>
-      This site links directly to the projects I’m actively working on.
-    </p>
+      <p> This site links directly to the projects I’m actively working on. </p>
 
-    <a href="/projects" class="project-links">View Projects →</a>
+      <a href="/projects" class="project-links">View Projects →</a>
+    </div>
+    <div class="intro-image">
+      <img
+          src="/images/pages/index/developer.png"
+          alt="Developer working illustration"
+      />
+    </div>
   </section>
 </BaseLayout>
