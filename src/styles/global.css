@@ -38,6 +38,16 @@ body {
   line-height: 1.6;
 }
 
+.site-title a {
+  color: inherit;
+  tex-decoration: none;
+}
+
+.site-title a:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
