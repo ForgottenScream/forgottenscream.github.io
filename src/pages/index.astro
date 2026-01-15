@@ -28,7 +28,7 @@ const pinnedProjects = allProjects.filter(
 
       <p> This site links directly to the projects I’m actively working on. </p>
 
-      <a href="/projects" class="project-links">View Projects →</a>
+      <a href="/projects" class="btn btn-secondary">View Projects →</a>
     </div>
     <div class="intro-image">
       <img
@@ -61,11 +61,11 @@ const pinnedProjects = allProjects.filter(
 
           <div class="project-links">
             {project.data.site && (
-              <a href={project.data.site} target="_blank">
+              <a href={project.data.site} target="_blank" class="btn btn-secondary">
                 Live Site →
               </a>
             )}
-            <a href={project.data.repo} target="_blank">
+            <a href={project.data.repo} target="_blank" class="btn btn-secondary">
               GitHub →
             </a>
           </div>

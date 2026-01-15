@@ -22,11 +22,11 @@ const projects = await getCollection("projects");
          )}
         <div class="project-links">
           {project.data.site && (
-            <a href={project.data.site} target="_blank">
+            <a href={project.data.site} target="_blank" class="btn btn-secondary">
               Live Site →
             </a>
           )}
-          <a href={project.data.repo} target="_blank">
+          <a href={project.data.repo} target="_blank" class="btn btn-secondary">
             View on GitHub →
           </a>
         </div>
