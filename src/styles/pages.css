@@ -1,0 +1,17 @@
+/* Index page */
+.intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+}
+
+.pinned-projects {
+  margin-top: 4rem;
+}
