@@ -13,10 +13,24 @@ const projects = await getCollection("projects");
       <li>
         <h3>{project.data.title}</h3>
         <p>{project.data.description}</p>
+        {project.data.image && (
+          <img
+              src={project.data.image}
+              alt={`Screenshot of ${project.data.title}`}
+              loading="lazy"
+          />
+         )}
+        <div class="project-links">
+          {project.data.site && (
+            <a href={project.data.site} target="_blank">
+              Live Site →
+            </a>
+          )}
+          <a href={project.data.repo} target="_blank">
+            View on GitHub →
+          </a>
+        </div>
         {project.data.status && <p>Status: {project.data.status}</p>}
-        <a href={project.data.repo} target="_blank">
-          View on GitHub →
-        </a>
       </li>
     ))}
   </ul>

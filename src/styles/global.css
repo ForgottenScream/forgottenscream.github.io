@@ -124,6 +124,19 @@ a.button {
 }
 
 /* ----------------------------
+   Image Styling
+-----------------------------*/
+
+li img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0.75rem 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* ----------------------------
    Project List
 ----------------------------- */
 
@@ -145,6 +158,12 @@ li p {
   margin: 0.25rem 0;
 }
 
+.project-links {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
 /* ----------------------------
    Small Screens
 ----------------------------- */
