@@ -8,7 +8,7 @@ const projects = await getCollection("projects");
 <BaseLayout title="Projects — ForgottenScream">
   <h2>Projects</h2>
 
-  <section class="project-grid">
+  <section class="project-list">
     {projects.map((project) => (
       <article class="project-card">
         <h3>{project.data.title}</h3>

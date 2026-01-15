@@ -194,6 +194,12 @@ li p {
   margin-top: 1.5rem;
 }
 
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .project-card {
   background: white;
   padding: 1.5rem;
