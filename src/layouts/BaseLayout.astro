@@ -12,34 +12,22 @@ import "../styles/global.css";
     <title>{title}</title>
   </head>
   <body>
-    <input type="checkbox" id="dark-toggle" class="dark-toggle" />
-    <label
-        for="dark-toggle"
-        class="dark-toggle-label" 
-        aria-label="Toggle dark mode"
-      >
-        <span class="icon-moon">🌙</span>
-        <span class="icon-sun">☀️</span>
-    </label>
+    <header class="site-header container">
+      <h1 class="site-title">
+        <a href="/">ForgottenScream</a>
+      </h1>
+      <nav>
+        <a href="/projects">Projects</a>
+        <a href="https://github.com/ForgottenScream" target="_blank">GitHub</a>
+      </nav>
+    </header>
 
-    <div class="page">
-      <header class="site-header container">
-        <h1 class="site-title">
-          <a href="/">ForgottenScream</a>
-        </h1>
-        <nav>
-          <a href="/projects">Projects</a>
-          <a href="https://github.com/ForgottenScream" target="_blank">GitHub</a>
-        </nav>
-      </header>
+    <main class="container">
+      <slot />
+    </main>
 
-      <main class="container">
-        <slot />
-      </main>
-
-      <footer class="container">
-        <p>© {new Date().getFullYear()} ForgottenScream</p>
-      </footer>
-    </div>
+    <footer class="container">
+      <p>© {new Date().getFullYear()} ForgottenScream</p>
+    </footer>
   </body>
 </html>

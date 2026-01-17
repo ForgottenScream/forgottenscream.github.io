@@ -4,13 +4,6 @@
   --text: #111111;
   --muted: #555555;
   --border: #e5e7eb;
-
-  /* Dark mode */
-  --bg-dark: #0f172a;
-  --text-dark: #e5e7eb;
-  --muted-dark: #9ca3af;
-  --border-dark: #1f2937;
-
   --max-width: 1100px;
 }
 
@@ -21,6 +14,9 @@
 }
 
 body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
   margin: 0;
   font-family:
     system-ui,
@@ -31,22 +27,5 @@ body {
     Helvetica,
     Arial,
     sans-serif;
-
   line-height: 1.6;
-}
-
-.page {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.25;
-}
-
-p {
-  margin-top: 0.5rem;
 }

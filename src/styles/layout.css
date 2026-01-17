@@ -28,17 +28,6 @@ footer {
   gap: 1.5rem;
 }
 
-.dark-toggle {
-  display: none;
-}
-
-.dark-toggle:checked ~ .page {
-  --bg: var(--bg-dark);
-  --text: var(--text-dark);
-  --muted: var(--muted-dark);
-  --border: var(--border-dark);
-}
-
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
