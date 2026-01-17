@@ -25,6 +25,10 @@ const projects = await getCollection("projects");
           />
          )}
         <div class="project-links">
+          <a href={`/projects/${project.slug}`} class="btn">
+            Read →
+          </a>
+
           {project.data.site && (
             <a href={project.data.site} target="_blank" class="btn btn-secondary">
               Live Site →
