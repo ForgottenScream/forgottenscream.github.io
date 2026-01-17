@@ -15,6 +15,7 @@ const projects = await getCollection("projects");
         <h3>{project.data.title}</h3>
 
         <p>{project.data.description}</p>
+
         {project.data.image && (
           <img
               src={project.data.image}
@@ -22,6 +23,7 @@ const projects = await getCollection("projects");
               loading="lazy"
           />
          )}
+
         <div class="project-links">
           <a href={`/projects/${project.slug}`} class="btn">
             Read →
@@ -29,12 +31,14 @@ const projects = await getCollection("projects");
 
           {project.data.site && (
             <a href={project.data.site} target="_blank" class="btn btn-secondary">
-              Live Site →
+              Site →
             </a>
           )}
+
           <a href={project.data.repo} target="_blank" class="btn btn-secondary">
             View on GitHub →
           </a>
+
         </div>
         {project.data.status && <p>Status: {project.data.status}</p>}
       </article>

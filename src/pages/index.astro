@@ -66,12 +66,14 @@ const pinnedProjects = allProjects.filter(
 
             {project.data.site && (
               <a href={project.data.site} target="_blank" class="btn btn-secondary">
-                Live Site →
+                Site →
               </a>
             )}
+
             <a href={project.data.repo} target="_blank" class="btn btn-secondary">
               GitHub →
             </a>
+
           </div>
         </article>
       ))}
