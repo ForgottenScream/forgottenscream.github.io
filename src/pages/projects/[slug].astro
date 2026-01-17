@@ -17,6 +17,10 @@ const { Content } = await project.render();
 
 <BaseLayout title={`${project.data.title} — Project`}>
   <article class="project-detail">
+    <a href="/projects" class="btn btn-secondary back-btn">
+      ← Back to projects
+    </a>
+
     <h2>{project.data.title}</h2>
 
     {project.data.image && (
