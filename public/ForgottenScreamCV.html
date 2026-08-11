@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+:root {
+    --bg-color: #0d0d0d;
+    --fg-color: #c0c0c0;
+    --accent-color: #00ff00;
+    --dim-color: #666666;
+    --border-color: #333333;
+    --spacing-tight: 0.25rem;
+    --spacing-normal: 0.5rem;
+    --spacing-wide: 1rem;
+    --spacing-section: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+            html {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: var(--bg-color);
+                color: var(--fg-color);
+                line-height: 1.5;
+                padding: 0.5rem 2rem 2rem 2rem;
+                max-width: 125ch;
+                margin: 0 auto;
+            }
+
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+
+            .cursor::after {
+                content: "█";
+                color: var(--accent-color);
+                animation: blink 1s infinite;
+                margin-left: 2px;
+            }
+
+            header {
+                padding: 0 0 var(--spacing-normal) 0;
+                margin-top: 0;
+                margin-bottom: var(--spacing-section);
+                border-bottom: 2px solid var(--accent-color);
+            }
+
+            h1.name {
+                font-size: 2rem;
+                color: var(--accent-color);
+                margin-top: 0;
+                margin-bottom: var(--spacing-normal);
+            }
+
+            .prompt {
+                margin-top: 0;
+                margin-bottom: var(--spacing-normal);
+                color: var(--accent-color);
+            }
+
+            .contact-links {
+                list-style: none;
+                margin-top: var(--spacing-normal);
+                text-align: center;
+            }
+
+            .contact-links li {
+                display: inline;
+            }
+
+            .contact-links a {
+                color: var(--fg-color);
+                text-decoration: none;
+            }
+
+            .contact-links a:hover {
+                color: var(--accent-color);
+                text-decoration: underline;
+            }
+
+            .separator {
+                color: var(--dim-color);
+                margin: 0 var(--spacing-normal);
+            }
+
+            /* ==================== LISTS ==================== */
+            section ul {
+                list-style: none;
+                margin-left: var(--spacing-wide);
+            }
+
+            section ul li {
+                margin-bottom: var(--spacing-normal);
+                position: relative;
+            }
+
+            section ul li::before {
+                content: "";
+                color: var(--dim-color);
+            }
+
+            /* Links inside list items (projects) */
+            section ul li a {
+                color: var(--fg-color);
+                text-decoration: underline;
+            }
+
+            section ul li a:hover {
+                color: var(--accent-color);
+                text-decoration: underline;
+            }
+
+            /* ==================== SECTIONS ==================== */
+            section {
+                margin-bottom: var(--spacing-section);
+            }
+
+            h2.section-title {
+                font-size: 1.25rem;
+                color: var(--accent-color);
+                margin-bottom: var(--spacing-normal);
+                text-transform: uppercase;
+            }
+
+            h2.section-title::before {
+                content: "> ";
+            }
+
+            h3 {
+                font-size: 1rem;
+                color: var(--fg-color);
+                margin-top: var(--spacing-wide);
+                margin-bottom: var(--spacing-normal);
+            }
+
+            h3::before {
+                content: "# ";
+                color: var(--dim-color);
+            }
+
+            .meta {
+                color: var(--dim-color);
+                font-size: 0.875rem;
+                display: block;
+                margin-top: var(--spacing-tight);
+            }
+
+            footer {
+                border-top: 1px solid var(--border-color);
+                padding-top: var(--spacing-normal);
+                margin-top: var(--spacing-section);
+                color: var(--dim-color);
+                font-size: 0.75rem;
+                text-align: center;
+            }
+
+            footer::before {
+                content: "# ";
+                color: var(--accent-color);
+            }
+
+            /* ==================== PRINT TO PDF ==================== */
+            @media print {
+                :root {
+                    --bg-color: white;
+                    --fg-color: black;
+                    --accent-color: black;
+                    --dim-color: #666666;
+                    --border-color: #cccccc;
+                }
+
+                body {
+                    background-color: white;
+                    color: black;
+                    font-family: 'Times New Roman', serif;
+                    padding: 0.5rem 1rem;
+                    max-width: none;
+                    font-size: 10pt;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                /* Hide terminal elements */
+                .prompt,
+                .cursor::after,
+                footer,
+            footer::before {
+                display: none !important;
+            }
+
+            header {
+                padding: var(--spacing-tight) 0 var(--spacing-normal) 0;
+                margin: 0 0 var(--spacing-normal) 0;
+                border-bottom: 1px solid #999;
+                text-align: center;
+            }
+
+            h1.name {
+                font-size: 1.5rem;
+                color: black;
+                margin: var(--spacing-tight) 0 var(--spacing-normal) 0;
+                line-height: 1.2;
+                text-align: center;
+            }
+
+            .contact-links {
+                margin: var(--spacing-tight) 0 0 0;
+                font-size: 0.85rem;
+                text-align: center;
+            }
+
+            .contact-links a {
+                color: black !important;
+                text-decoration: none;
+                text-shadow: none;
+            }
+
+            .separator {
+                margin: 0 var(--spacing-tight);
+                color: #999;
+            }
+
+            main {
+                text-align: left;
+            }
+
+            section {
+                margin-bottom: var(--spacing-normal);
+                page-break-inside: avoid;
+            }
+
+            h2.section-title {
+                font-size: 1rem;
+                color: black;
+                border-bottom: 1px solid #999;
+                padding-bottom: 0.15rem;
+                margin-bottom: var(--spacing-tight);
+                text-transform: uppercase;
+                line-height: 1.1;
+                text-align: left;
+            }
+
+            /* Remove all terminal prefixes */
+            h2.section-title::before,
+        h3::before,
+        section ul li::before {
+            content: "" !important;
+            display: none !important;
+        }
+
+        h3 {
+            font-size: 0.95rem;
+            color: black;
+            margin-top: var(--spacing-normal);
+            margin-bottom: var(--spacing-tight);
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .meta {
+            color: #666 !important;
+            font-size: 0.85rem;
+            margin-top: 0;
+            margin-bottom: var(--spacing-tight);
+            text-align: left;
+            display: inline;
+        }
+
+        section ul {
+            list-style: none !important;
+            margin-left: var(--spacing-wide);
+            line-height: 1.3;
+            text-align: left;
+        }
+
+        section ul li {
+            margin-bottom: var(--spacing-tight);
+        }
+
+        section ul li::before {
+            content: "" !important;
+            display: none !important;
+        }
+
+        section ul li a {
+            color: black !important;
+            text-decoration: none !important;
+            font-weight: 600;
+        }
+
+        /* Prevent link URLs from appearing in brackets */
+        a[href]::after {
+            content: "" !important;
+        }
+
+        p, h3, ul, .meta {
+            page-break-inside: avoid;
+        }
+
+        * {
+            font-family: 'Times New Roman', serif !important;
+        }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="prompt">$ cat ~/identity.sh</div>
+            <h1 class="name cursor">ForgottenScream</h1>
+            <nav class="contact-links">
+                <a href="mailto:ForgottenScream@protonmail.com">ForgottenScream@protonmail.com</a>
+                <span class="separator">•</span>
+                <a href="https://forgottenscream.github.io" target="_blank">forgottenscream.github.io</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="summary">
+                <h2 class="section-title">Summary</h2>
+                <p>
+                Security-focused developer specializing in privacy-preserving
+                infrastructure and automated compliance tooling. Experienced in
+                compartmentalized security architectures (Qubes OS), regulatory
+                automation (GDPR enforcement pipelines), and secure backend systems.
+                Building toward AI/ML security applications including model hardening
+                and data governance automation. Hands-on experience with Git,
+                Docker, and reproducible command-line environments (Arch Linux
+                dotfiles, Neovim, tmux, Zsh), alongside backend training through
+                Boot.dev
+                </p>
+            </section>
+
+            <section id="experience">
+                <h2 class="section-title">Professional Experience</h2>
+                <h3>Software Developer - Sitana (March 2026 - August 2026)</h3>
+                <ul>
+                    <li>Built backend features for
+                        <a href="https://diversa21.org">Diversa21</a>
+                        using Netuno, JavaScript, and SQL.</li>
+                    <li>Developed RESTful APIs, backend logic, and database integrations.</li>
+                    <li>Developed frontend functions and service calls to backend.</li>
+                    <li>Collaborated with developers using Git to deliver, test, and maintain new features.</li>
+                </ul>
+                <h3>Data Operations Controller - University (September 2024 - September 2025)</h3>
+                <ul>
+                    <li>
+                        Managed and maintained accurate records of university
+                        activities and events using internal database systems.
+                    </li>
+                    <li>
+                        Ensured high standards of data accuracy, integrity and
+                        confidentiality through systematic information processing,
+                        validation and verification.
+                    </li>
+                    <li>
+                        Supported administrative operations by organising and
+                        updating large datasets efficiently.
+                    </li>
+                </ul>
+                <h3>Student Ambassador - University (September 2023 - September 2024)</h3>
+                <ul>
+                    <li>Represented the university at Open Days and Applicant Days.</li>
+                    <li>Assisted over 200 prospective students and visitors, providing guidance and information.</li>
+                    <li>Strengthened communication and customer service skills.</li>
+                </ul>
+
+            </section>
+
+            <section id="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <ul>
+                    <li>Programming Languages: Bash, Python, Java, Javascript, PostgreSQL</li>
+                    <li>Frameworks & Platforms: React, Netuno, CodeIgniter</li>
+                    <li>OS: Arch Linux, Qubes OS</li>
+                    <li>Tools: Git, tmux, Neovim</li>
+                </ul>
+            </section>
+
+            <section id="projects">
+                <h2 class="section-title">Projects</h2>
+                <ul>
+                    <li>
+                        <a href="https://forgottenscream.github.io/projects/gdpr-pipeline/">GDPR Enforcement Pipeline:</a>
+                        <ul>
+                            <li>
+                                Developed a semi-automated LLM pipeline in Netuno to
+                                extract structured enforcement decision data from
+                                unstructured DPA documents using prompt engineering
+                                and schema-based information extraction with JSON
+                                outputs.
+                            </li>
+                            <li>
+                                Implemented text classification to standardize
+                                enforcement outcomes (e.g., enforcement
+                                type/severity/categories) across multiple EU Data
+                                Protection Authorities.
+                            </li>
+                            <li>
+                                Built entity resolution / record linkage logic
+                                to correlate enforcement cases across
+                                authorities by matching key entities and
+                                metadata (e.g., parties, case identifiers,
+                                dates).
+                            </li>
+                            <li>
+                                Integrated Kimi (via OpenRouter) into a LLM
+                                orchestration workflow, including automated
+                                extraction/classification and manual QA
+                                validation against manually annotated cases.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://forgottenscream.github.io/projects/my-qubes-journey/">My Qubes OS Journey:</a>
+                        Technical documentation on compartmentalized security architecture and workflows.
+                    </li>
+                    <li>
+                        <a href="https://forgottenscream.github.io/projects/arch-installer/">Mouseless Dev</a>
+                        Arch Linux installer and dotfiles (Bash automation, Neovim, Zsh).
+                    </li>
+                    <li>
+                        <a href="https://forgottenscream.github.io/projects/flag-game/">Match the Flag:</a>
+                        Game written in HTML, CSS, JavaScript, JQuery and AJAX.
+                    </li>
+                    <li>
+                        <a href="https://forgottenscream.github.io/projects/guess-the-number/">Guess the Number:</a>
+                        Game written in HTML, CSS and JavaScript.
+                    </li>
+                </ul>
+
+            </section>
+
+            <section id="education">
+                <h2 class="section-title">Education</h2>
+                <h3>BSc (Hons) Computer Science - University (2023-2026)</h3>
+                <p>Achieved a First Class Honours.</p>
+                <p>Relevant Modules:</p>
+                <ul>
+                    <li>
+                        Cyber Security (authentication, cryptography, security
+                        controls, risk management)
+                    </li>
+                    <li>
+                        Artificial Intelligence (search algorithms,
+                        neural networks, decision trees, classification)
+                    </li>
+                    <li>
+                        Software engineering (databases, algorithms, object-oriented
+                        programming, functional programming)
+                    </li>
+                </ul>
+                <h3>Boot.dev - Backend & Systems Programming</h3>
+                <p>
+                Completed a hands-on backend and systems programming
+                curriculum covering software development fundamentals
+                through practical projects.
+                </p>
+            </section>
+
+            <section id="languages">
+                <h2 class="section-title">Languages</h2>
+                <h3>Native: English & Portuguese</h3>
+            </section>
+        </main>
+
+        <footer>
+            Written with nvim |
+            Last modified: $(date) |
+            View source via browser (Ctrl+U) |
+            Presentable Version (Ctrl+P)
+        </footer>
+    </body>
+</html>

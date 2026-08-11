@@ -2,7 +2,7 @@
 title: GDPR Enforcement Pipeline
 description: Semi-automated pipeline for tracking enforcement decisions across Data Protection Authorities in the EU using Netuno Platform
 repo: https://github.com/ForgottenScream/gdpr-pipeline
-status: In progress
+status: Completed
 pinned: true
 ---
 
